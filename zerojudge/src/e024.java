@@ -3,25 +3,47 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.Scanner;
 
-public class Problem {
+public class e024 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+
+	public static void solve(String s) {
+		String w[] = s.split("\\s");
+		BigInteger a = new BigInteger(w[0]);
+		BigInteger b = new BigInteger(w[1]);
+		if (a.equals(BigInteger.ONE)) {
+			System.out.println("1");
+		} else {
+			System.out.println(pow(a, b));
+		}
 	}
+
+	public static BigInteger pow(BigInteger base, BigInteger exponent) {
+		BigInteger result = BigInteger.ONE;
+		while (exponent.signum() > 0) {
+			if (exponent.testBit(0))
+				result = result.multiply(base);
+			base = base.multiply(base);
+			exponent = exponent.shiftRight(1);
+		}
+		return result;
+	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		while (sc.hasNext()) {
+			String s = sc.nextLine();
+			if (s.startsWith("0")) {
+				System.exit(0);
+			}
+			solve(s);
+		}
 		out.close();
 	}
 

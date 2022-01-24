@@ -5,23 +5,48 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Problem {
+public class a740 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+
+	public static void solve(int n) {
+		int sum, i;
+		long ans = 0;
+		for (i = 2; i <= n; i++) {
+			sum = 0;
+			while (n % i == 0) {
+				sum++;
+				ans += i;
+				n = n / i;
+			}
+			if (sum > 1) {
+				//ans += i*sum;
+				if (n > 1) {
+					//System.out.print(" * ");
+				}
+			} else if (sum == 1) {
+				//System.out.println(i);
+				
+				if (n > 1) {
+					//System.out.print(" * ");
+				}
+			}
+			if (n == 1) {
+				break;
+			}
+		}
+		System.out.println(ans);
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			solve(n);
+		}
 		out.close();
 	}
 

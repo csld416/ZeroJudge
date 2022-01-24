@@ -5,23 +5,29 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Problem {
+public class c636 {
 
 	static InputReader read;
 	static PrintWriter out;
-	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+	final static Scanner sc = new Scanner(System.in);
+
+	public static void solve(int n) {
+
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		String y[] = { "½Þ", "¹«", "¤û", "ªê", "¨ß", "Às", "³D", "°¨", "¦Ï", "µU", "Âû", "ª¯" };
+
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			if (n > 0) {
+				System.out.println(y[n%12]);
+			} else {
+				System.out.println(y[(n+121)%12]);
+			}
+		}
 		out.close();
 	}
 

@@ -5,23 +5,30 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Problem {
+public class a414 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+
+	public static void solve(int n) {
+		int i;
+		for (i = 0; n > 0 && n % 2 == 1; i++) {
+			n /= 2;
+		}
+		System.out.println(i);
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			if (n == 0) {
+				System.exit(0);
+			}
+			solve(n);
+		}
 		out.close();
 	}
 

@@ -5,23 +5,34 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
-public class Problem {
+public class a647 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
+
+	public static void solve(int m, int p) {
+		String desision = "";
+		double x = (p-m) * 1.0 / m / 1.0 * 1.0 * 100;
 		
+		if (x >= 10.00 || x <= -7.00) {
+			System.out.printf("%.2f", x);
+			System.out.println("% dispose");
+		}else {
+			System.out.printf("%.2f", x);
+			System.out.println("% keep");
+		}
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		int n = read.nextInt();
+		while (n-- > 0) {
+			int p = read.nextInt();
+			int m = read.nextInt();
+			solve(p, m);
+		}
 		out.close();
 	}
 

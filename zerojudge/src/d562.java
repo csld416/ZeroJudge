@@ -3,25 +3,51 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Scanner;
 
-public class Problem {
+public class d562 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+
+	public static void solve(int a[]) {
+		ArrayList<Integer> list = new ArrayList<>();
+		for (int i = 0; i < a.length; i++) {
+			list.add(a[i]);
+		}
+		int n = list.size();
+		for (int j = 0; j < n; ++j) {
+			for (int i = 0; i < list.size(); ++i) {
+				System.out.print(list.get(i) + " ");
+			}
+			System.out.println();
+			if (list.size() == 1) {
+				return;
+			} else {
+				System.out.println();
+				list.remove(0);
+				Collections.reverse(list);
+			}
+		}
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		while (sc.hasNext()) {
+			int n = sc.nextInt();
+			int a[] = new int[n];
+			for (int i = 0; i < a.length; i++) {
+				a[i] = sc.nextInt();
+			}
+
+			solve(a);
+		}
+
 		out.close();
 	}
 

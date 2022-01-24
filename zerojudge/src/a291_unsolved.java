@@ -3,25 +3,56 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Problem {
+public class a291_unsolved {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
-	public static void solve() {
-		
+	/*
+	 * define right -> right digit, right position 
+	 * define wrong -> right digit, wrong position
+	 * 
+	 * NOTE: whatever goes to the right segment wont go to the wrong one
+	 * DELETE IS NECESSESARY
+	 * */
+	public static ArrayList<String> list = new ArrayList<>();
+	public static void solve(String s, String at[]){
+		String ans[] = s.split("\\s");
+		for (int i = 0; i < at.length; i++) {
+			String attempt[] = at[i].split("\\s");
+			//ans -> [1, 2, 3, 4]
+			//attempt -> [2, 2, 3, 5]
+			int right = 0;
+			int wrong = 0;
+			for(int j = 0; j < attempt.length; ++j) {
+				if(attempt[j].equals(ans[j])) {
+					right++;
+					
+				}
+			}
+			
+			
+			
+			
+			System.out.println(right+"A"+wrong+"B");
+		}
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		/**
-		
-		input
-		
-		**/
-		solve();
+		while (sc.hasNext()) {
+			String ans = sc.nextLine();
+			int n = Integer.parseInt(sc.nextLine());
+			String att[] = new String[n];
+			for (int i = 0; i < n; ++i) {
+				att[i] = sc.nextLine();
+			}
+			solve(ans, att);
+		}
 		out.close();
 	}
 

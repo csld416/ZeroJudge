@@ -10,14 +10,16 @@ public class c379 {
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
+
 	public static void solve(int n) {
-		System.out.println(n*3/10);
+		System.out.println(n * 3 / 10);
 	}
+
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
 		int n = read.nextInt();
-		
+
 		solve(n);
 		out.close();
 	}
