@@ -3,61 +3,42 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class b265 {
+public class b367 {
 
 	static InputReader read;
 	static PrintWriter out;
 	static Scanner sc = new Scanner(System.in);
 
-	public static void solve(int[][] a) {
+	public static void solve(int[] a) {
+		ArrayList<Integer> list = new ArrayList<>();
+		ArrayList<Integer> com = new ArrayList<>();
 		for (int i = 0; i < a.length; i++) {
-			int temp[] = new int[5];
-			for (int j = 0; j < 5; j++) {
-				temp[j] = a[i][j];
-			}
-			Arrays.sort(temp);
-			for (int j = 0; j < a.length; j++) {
-				for (int k = 0; k < 5; k++) {
-					a[i][k] = temp[k];
-				}
-			}
-			// ==========
-
+			list.add(a[i]);
 		}
-		String ss[] = new String[a.length];
-		for (int i = 0; i < ss.length; i++) {
-			ss[i] = "";
+		for (int i = a.length-1; i > -1; i--) {
+			com.add(a[i]);
 		}
-		for (int j = 0; j < a.length; j++) {
-			for (int j2 = 0; j2 < 5; j2++) {
-				ss[j] += Integer.toString(a[j][j2]);
-			}
+		if(com.equals(list)) {
+			System.out.println("go forward");
+		}else {
+			System.out.println("keep defending");
 		}
-		long[] t = new long[ss.length];
-		for (int i = 0; i < t.length; i++) {
-			long r  = Long.parseLong(ss[i]);
-			t[(int) r]++;
-		}
-		
 	}
 
 	public static void main(String[] args) throws IOException {
 		read = new InputReader(System.in);
 		out = new PrintWriter(System.out);
-		while (sc.hasNext()) {
-			int n = sc.nextInt();
-			if (n == 0) {
-				System.exit(0);
-			}
-			int a[][] = new int[n][5];
+		int n = read.nextInt();
+		while (n-- > 0) {
+			int p = read.nextInt();
+			int m = read.nextInt();
+			int a[] = new int[m * p];
 			for (int i = 0; i < a.length; i++) {
-				for (int j = 0; j < 5; j++) {
-					a[i][j] = sc.nextInt();
-				}
+				a[i] = read.nextInt();
 			}
 			solve(a);
 		}
