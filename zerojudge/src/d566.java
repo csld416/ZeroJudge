@@ -1,7 +1,5 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class d566 {
@@ -9,41 +7,47 @@ public class d566 {
 	final static Scanner sc = new Scanner(System.in);
 	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void solve(ArrayList<String> stack) {
-		String w[] = new String[stack.size()];
-		for (int i = 0; i < w.length; i++) {
-			w[i] = stack.get(i);
-		}
-		ArrayList<String> list = new ArrayList<>();
-		ArrayList<String> ac = new ArrayList<>();
-		double sum = 0;
-		double mother = 0;
-
-		for (int i = 0; i < w.length; i++) {
-			String e[] = w[i].split("\\s");
-			if (e[1].equals("AC") && !list.contains(e[0])) {
-				if(!ac.contains(e[0])) {
-					ac.add(e[0]);
-					sum++;
-				}else {
-					mother++;
+	public static void solve(String state[][],int i) {
+		int k = 0;
+		for (int a = 0; a < i; a++) {
+			boolean find = false;
+			String name = sc.next();
+			for (int b = 0; b < i; b++) {
+				if (name.equals(state[b][0])) {
+					state[b][1] = sc.next();
+					if (state[b][1].equals("AC"))
+						state[b][2] = "Y";
+					find = true;
+					break;
 				}
-			} else {
-				list.add(e[0]);
+			}
+			if (!find) {
+				state[k][0] = name.toString();
+				state[k][1] = sc.next();
+				if (state[k][1].equals("AC"))
+					state[k][2] = "Y";
+				k++;
 			}
 		}
-		double ans = sum / mother / 1.0 * 100;
-		String t = Double.toString(ans).replace(".0", "");
-		System.out.println(t+"%");
+		int AC = 0, player = 0;
+		for (int a = 0; a < i; a++) {
+			if (state[a][0] != null) {
+				if (state[a][2] != null) {
+					if (state[a][2].equals("Y"))
+						player++;
+				}
+				if (state[a][1].equals("AC"))
+					AC++;
+			}
+		}
+		System.out.println(AC * 100 / player + "%");
+		//break;
 	}
 
-	public static void main(String[] args) throws IOException {
-		int n = Integer.parseInt(br.readLine());
-		ArrayList<String> stack = new ArrayList<>();
-		while (n-- > 0) {
-			stack.add(br.readLine());
-		}
-		solve(stack);
+	public static void main(String[] args) {
+		int i = sc.nextInt();
+		String[][] a = new String[i][3];
+		solve(a, i);
 	}
 
 }
