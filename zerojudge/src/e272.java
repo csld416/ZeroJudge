@@ -10,19 +10,14 @@ public class e272 {
     final static Scanner sc = new Scanner(System.in);
     final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void solve(int a, int b) {
-        int gcd = gcd(a, b);
-        BigInteger fb[] = new BigInteger[gcd+1];
-        fb[0] = BigInteger.ONE;
-        fb[1] = BigInteger.ONE;
-        for (int i = 2; i < gcd+1; i++) {
-            fb[i] = fb[i - 2].add(fb[i - 1]);
-        }
-
-        System.out.println(fb[gcd]);
+    public static void solve(int n, int m) {
+        double f = Math.sqrt(5);
+        n = (int) ((Math.pow(1+5, n)) - (Math.pow(1-5, n))/(Math.pow(2, n)*f));        
+        m = (int) ((Math.pow(1+5, m)) - (Math.pow(1-5, m))/(Math.pow(2, m)*f));
+        System.out.println(gcd(n,m));
     }
 
-    static int gcd(int a, int b) {
+    static long gcd(int a, int b) {
         if (b == 0) {
             return a;
         }
@@ -33,11 +28,6 @@ public class e272 {
         while (sc.hasNext()) {
             int a = sc.nextInt();
             int b = sc.nextInt();
-            if (b > a) {
-                a ^= b;
-                b ^= a;
-                a ^= b;
-            }
             solve(a, b);
         }
     }

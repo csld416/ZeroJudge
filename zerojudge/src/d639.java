@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class d639 {
@@ -12,15 +13,15 @@ public class d639 {
 
     public static void solve(String s) {
         int n = Integer.parseInt(s);
-        ArrayList<Integer> a = new ArrayList<>();
-        a.add(1);a.add(3);a.add(5);a.add(9);
-        if(n < 4){
-            System.out.println(1);
-        }else{
-            
-        }
-        
-
+        long a[] = new long[n];
+        for (int i = 0; i < 3; i++) {
+			a[i] = 1;
+			
+		}
+        for (int i = 3; i < a.length; i++) {
+			a[i] = (a[i-1] + a[i-2] + a[i-3])%10007;
+		}
+        System.out.println(a[n-1]);
     }
 
     public static void main(String[] args) throws IOException {
