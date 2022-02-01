@@ -11,15 +11,18 @@ public class e394 {
 
 	public static void solve(String s) {
 		char[] ch = c.toCharArray();
-		boolean t = false;
 		String w[] = s.split("");
+		ArrayList<String> input = new ArrayList<>();
+		boolean t = false;
+
 		Arrays.sort(w);
-		ArrayList<String> list = new ArrayList<>();
+		
 		for (int i = 0; i < w.length; i++) {
-			list.add(w[i]);
+			input.add(w[i]);
 		}
+		
 		for (int i = ch.length-1; i > -1; i--) {
-			if (list.contains(ch[i])) {
+			if (input.contains(Character.toString(ch[i]))) {
 				t = true;
 				break;
 			}
