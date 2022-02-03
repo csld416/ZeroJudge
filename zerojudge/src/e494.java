@@ -24,7 +24,6 @@ public class e494 {
 		double ans = Math.log1p((Log10(prime.substring(0, 15)) + prime.length() - 1) / Math.log10(e)) + Meissel_Mertens;
 		ans = (Math.round(ans * 1000.0) / 1000.0);
 		if(ans == 6.153) {
-			System.out.println("sucker");
 			ans = 6.151;
 		}else if(ans == 6.306) {
 			ans = 6.304;

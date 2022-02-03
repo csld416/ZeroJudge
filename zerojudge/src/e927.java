@@ -3,30 +3,25 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Test {
+public class e927 {
 
 	final static Scanner sc = new Scanner(System.in);
 	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void solve() {
+	public static void solve(String s) {
+		char c[] = s.toCharArray();
+		Arrays.sort(c);
+		for (int i = 0; i < c.length; i++) {
+			System.out.print(c[i]);
+		}
 
 	}
 
 	public static void main(String[] args) {
-		
-		String s = "p.....q";
-		s = s.replace(".", "");
-		System.out.println(s);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		while (sc.hasNext()) {
+			String s = sc.nextLine();
+			solve(s);
+		}
 	}
+
 }

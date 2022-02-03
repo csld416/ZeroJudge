@@ -13,10 +13,10 @@ public class f988 {
 
 	public static void solve(long n, long r) {
 		// C a catch b (mod 10^8+7)
-		BigInteger a = fac(n).mod(m);
-		BigInteger b = (fac(r).mod(m));
-		BigInteger c = (fac(n-r).mod(m));
-		System.out.println(a.divide(b.multiply(c)));
+		BigInteger a = fac(n);
+		BigInteger b = (fac(r));
+		BigInteger c = (fac(n-r));
+		System.out.println((a.divide(b.multiply(c))).mod(m));
 	}
 
 	public static BigInteger fac(long n) {
