@@ -3,25 +3,37 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class c089 {
-	
+
 	final static Scanner sc = new Scanner(System.in);
 	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	
+
 	public static void solve(String s) {
 		String w[] = s.split("\\s+");
 		String input = w[0];
-		int convert =Integer.parseInt(w[1]);
-		int output = Integer.parseInt(w[2]);
+		int a =Integer.parseInt(w[1]);
+		int b = Integer.parseInt(w[2]);
 		
-		int tmp = Integer.parseInt(input, convert);
-		System.out.println();
+		int tmp = Integer.parseInt(input, a);
+		String ans = Integer.toString(tmp, b);
+		
+		ans = ans.toUpperCase();
+		if(ans.length() > 7) {
+			ans = "ERROR";
+		}
+		StringBuilder t = new StringBuilder(ans);
+		while(t.length() < 7) {
+			t.insert(0, " ");
+		}
+
+		System.out.println(t);
 
 	}
-	
+
 	public static void main(String[] args) {
-		while(sc.hasNext()) {
+		while (sc.hasNext()) {
 			String s = sc.nextLine();
-			solve(s);
+			s = s.toLowerCase();
+			solve(s.trim());
 		}
 	}
 
