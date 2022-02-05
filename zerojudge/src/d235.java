@@ -1,24 +1,36 @@
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class a001 {
+public class d235 {
 
-	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter out = new PrintWriter(System.out);
+	final static Scanner sc = new Scanner(System.in);
+	static PrintWriter sout = new PrintWriter(System.out);
+	static BigInteger eleven = new BigInteger("11");
+
+	public static void solve(String s) {
+		BigInteger bg = new BigInteger(s);
+
+		if (bg.mod(eleven).equals(BigInteger.ZERO)) {
+			sout.append(s + " is a multiple of 11.");
+		} else {
+			sout.append(s + " is not a multiple of 11.");
+		}
+		sout.append("\n");
+		sout.flush();
+
+	}
 
 	public static void main(String[] args) throws Throwable {
-		String input = br.readLine();
-		out.append("hello, " + input);
-		out.append("\n");
-		out.flush();
-
+		while (true) {
+			String s = sc.nextLine();
+			if (s.equals("0")) {
+				break;
+			} else {
+				solve(s);
+			}
+		}
 	}
 
 	static class Scanner {

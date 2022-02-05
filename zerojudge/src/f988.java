@@ -8,14 +8,14 @@ public class f988 {
 
 	final static Scanner sc = new Scanner(System.in);
 	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static long k = (long) (Math.pow(10, 18) + 7);
+	static long k = (long) (Math.pow(10, 8) + 7);
 	static BigInteger m = new BigInteger(Long.toString(k));
 
 	public static void solve(long n, long r) {
 		// C a catch b (mod 10^8+7)
-		BigInteger a = fac(n);
-		BigInteger b = (fac(r));
-		BigInteger c = (fac(n-r));
+		BigInteger a = fac(n).mod(m);
+		BigInteger b = (fac(r).mod(m));
+		BigInteger c = (fac(n-r).mod(m));
 		System.out.println((a.divide(b.multiply(c))).mod(m));
 	}
 

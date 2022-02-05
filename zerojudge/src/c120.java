@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -6,19 +5,29 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class a001 {
+public class c120 {
 
-	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter out = new PrintWriter(System.out);
+	final static Scanner sc = new Scanner(System.in);
+	static PrintWriter sout = new PrintWriter(System.out);
+	
+	public static void solve(String s) {
+		BigInteger st = BigInteger.ONE;
+		for (int i = 1; i <= Integer.parseInt(s); i++) {
+			st = st.multiply(new BigInteger(Integer.toString(i)));
+		}
+		sout.append(st + "\n");
+	}
 
-	public static void main(String[] args) throws Throwable {
-		String input = br.readLine();
-		out.append("hello, " + input);
-		out.append("\n");
-		out.flush();
-
+	public static void main(String[] args) throws Throwable{
+		String str = "";
+		while((str=sc.nextLine())!=null && str.length()!=0) {
+			sout.append(str+ "!\n");
+			solve(str);
+			sout.flush();
+		}
 	}
 
 	static class Scanner {

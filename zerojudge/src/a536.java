@@ -1,24 +1,33 @@
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.StringTokenizer;
 
-public class a001 {
+public class a536 {
 
-	final static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	static PrintWriter out = new PrintWriter(System.out);
+	final static Scanner sc = new Scanner(System.in);
+	static PrintWriter sout = new PrintWriter(System.out);
+	static int e, f, c, sum;
+	public static void solve(String s) {
+		String w[] = s.split("\\s");
+		e = Integer.parseInt(w[0]);
+		f = Integer.parseInt(w[1]);
+		c = Integer.parseInt(w[2]);
+		e+=f;
+		sum = 0;
+		while(e / c > 0) {
+			 sum += e/c;
+             e =e/c+e%c;
+		}
+		sout.append(Integer.toString(sum));
+		sout.append("\n");
+		sout.flush();
+	}
 
-	public static void main(String[] args) throws Throwable {
-		String input = br.readLine();
-		out.append("hello, " + input);
-		out.append("\n");
-		out.flush();
-
+	public static void main(String[] args) throws Throwable{
+		int n  = Integer.parseInt(sc.nextLine());
+		while(n-->0) {
+			String s = sc.nextLine();
+			solve(s);
+		}
 	}
 
 	static class Scanner {
