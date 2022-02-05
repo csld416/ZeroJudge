@@ -21,12 +21,6 @@ public class d267 {
 				freq[c]++;
 			}
 		}
-		for (char c : ca) {
-			if (Character.isAlphabetic(c)) {
-				freq[c]++;
-			}
-		}
-
 		int max = Arrays.stream(freq).max().getAsInt();
 		StringBuilder sb = new StringBuilder();
 		for (int i = 'a'; i <= 'z'; i++) {

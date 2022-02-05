@@ -1,23 +1,25 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.StringTokenizer;
 
-public class Module {
+public class d226 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	
-	public static void solve() {
 
+	public static void solve(String s) {
+		String w[] = s.split("\\s");
+		int v = Integer.parseInt(w[0]);
+		int t = Integer.parseInt(w[1]);
+		out.append(Integer.toString(2*v*t));
+		out.append("\n");
+		out.flush();
 	}
 
-	public static void main(String[] args) throws Throwable{
-
+	public static void main(String[] args) throws Throwable {
+		String s = "";
+		while ((s = sc.nextLine()) != null && s.length() != 0) {
+			solve(s);
+		}
 	}
 
 	static class Scanner {
