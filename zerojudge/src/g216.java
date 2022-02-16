@@ -5,30 +5,24 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class g216 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	static int a, b;
-	static int ans;
 
-	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
-		}
-		out.append(ans + "\n");
+	public static void solve(int n) {
+		out.append("2^(10^" + n + ")" + "\n");
 		out.flush();
 	}
+
 	public static void main(String[] args) throws Throwable {
-		a = sc.nextInt();
-		b = sc.nextInt();
-		solve();
+		int s = sc.nextInt();
+		solve(s);
 	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;

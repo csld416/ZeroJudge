@@ -31,10 +31,8 @@ public class a915 {
 			for (int j = 0; j < n; j++) {
 				a[j][i] = v.get(j);
 			}
-			v.
 			v.removeAll(v);
 		}
-		System.out.println(v);
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < 2; j++) {
 				System.out.print(a[i][j] + " ");

@@ -7,28 +7,42 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class a623 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
+	static String s = "";
 	static int a, b;
-	static int ans;
 
-	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
+	public static long permutation() {
+		if (a - b < b) {
+			int tmp;
+			tmp = a-b;
+			b = tmp;
 		}
-		out.append(ans + "\n");
-		out.flush();
+		long up = 1;
+		long down = 1;
+		for (int i = 1, j = a; i <= b; i++, j--) {
+			up *= j;
+		}
+		for (int i = 1; i <= b; i++) {
+			down *= i;
+		}
+		return up/down;
 	}
+
 	public static void main(String[] args) throws Throwable {
-		a = sc.nextInt();
-		b = sc.nextInt();
-		solve();
+		while ((s = sc.nextLine()) != null && s.length() != 0) {
+			String w[] = s.split("\\s");
+			a = Integer.parseInt(w[0]);
+			b = Integer.parseInt(w[1]);
+			
+			out.append(permutation() + "\n");
+			out.flush();
+		}
+
 	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;

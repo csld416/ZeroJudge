@@ -7,28 +7,27 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class a862 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	static int a, b;
-	static int ans;
-
+	static double v, r;
 	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
+		double i = v/r/1.0*1000.0;
+		i = Math.round(i*10000.0)/10000.0;
+		System.out.printf("%.4f\n", i);
+	}
+
+	public static void main(String[] args) throws Throwable{
+		String s = "";
+		while((s = sc.nextLine()) != null && s.length() != 0){
+			String w[] = s.split(" ");
+			v = Double.parseDouble(w[0]);
+			r = Double.parseDouble(w[1]);
+			solve();
 		}
-		out.append(ans + "\n");
-		out.flush();
 	}
-	public static void main(String[] args) throws Throwable {
-		a = sc.nextInt();
-		b = sc.nextInt();
-		solve();
-	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;
@@ -66,8 +65,7 @@ public class b877 {
 		public boolean ready() throws IOException {
 			return br.ready();
 		}
-
-		public boolean hasNext(String s) throws Throwable {
+		public boolean hasNext(String s) throws Throwable{
 			return (s = sc.nextLine()) != null && s.length() != 0;
 		}
 	}

@@ -5,30 +5,39 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class f266 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	static int a, b;
-	static int ans;
-
+	static String s;
 	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
+		String w[] = s.split("\\s");
+		ArrayList<String> list = new ArrayList<>();
+		for (int i = 0; i < w.length; i++) {
+			list.add(w[i]);
 		}
-		out.append(ans + "\n");
+		for (int i = 0; i < w.length; i++) {
+			printList(list);
+			list.remove(0);
+		}
+		
+	}
+	public static void printList(ArrayList<String> list) {
+		for (int i = 0; i < list.size(); i++) {
+			out.append(list.get(i));
+			out.append(" ");
+		}
+		out.append("\n");
 		out.flush();
 	}
-	public static void main(String[] args) throws Throwable {
-		a = sc.nextInt();
-		b = sc.nextInt();
+	public static void main(String[] args) throws Throwable{
+		s = sc.nextLine();
 		solve();
 	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;
@@ -66,8 +75,7 @@ public class b877 {
 		public boolean ready() throws IOException {
 			return br.ready();
 		}
-
-		public boolean hasNext(String s) throws Throwable {
+		public boolean hasNext(String s) throws Throwable{
 			return (s = sc.nextLine()) != null && s.length() != 0;
 		}
 	}

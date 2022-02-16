@@ -5,30 +5,44 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class d385 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	static int a, b;
-	static int ans;
+	static int n;
 
-	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
+	public static void solve(String w[]) {
+		StringBuilder sb = new StringBuilder();
+		Arrays.sort(w);
+		for (int i = w.length - 1; i > -1; i--) {
+			if (w[i].equals("9")) {
+				sb.insert(0, w[i]);
+			} else {
+				sb.append(w[i]);
+			}
 		}
-		out.append(ans + "\n");
+		out.append(sb + "\n");
 		out.flush();
 	}
+
 	public static void main(String[] args) throws Throwable {
-		a = sc.nextInt();
-		b = sc.nextInt();
-		solve();
+		while (true) {
+			n = sc.nextInt();
+			if (n == 0) {
+				System.exit(0);
+			}
+			String a[] = new String[n];
+			for (int i = 0; i < a.length; i++) {
+				a[i] = sc.next();
+			}
+			solve(a);
+		}
 	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;

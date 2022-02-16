@@ -7,28 +7,46 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
 
-public class b877 {
+public class b882 {
 
 	final static Scanner sc = new Scanner(System.in);
 	static PrintWriter out = new PrintWriter(System.out);
-	static int a, b;
-	static int ans;
+	static long a, b, c;
 
 	public static void solve() {
-		if (a <= b) {
-			ans = b - a;
-		} else {
-			ans = 99-a + b+1;
+		b += c / 60;
+		c %= 60;
+
+		a += b / 60;
+		b %= 60;
+
+		if (a >= 24) {
+			a %= 24;
 		}
-		out.append(ans + "\n");
+		StringBuilder a1, b1, c1;
+		a1 = new StringBuilder(Long.toString(a));
+		b1 = new StringBuilder(Long.toString(b));
+		c1 = new StringBuilder(Long.toString(c));
+		if (a < 10) {
+			 a1 = a1.insert(0, "0");
+		}
+		if (b < 10) {
+			 b1 = b1.insert(0, "0");
+		}
+		if (c < 10) {
+			 c1 = c1.insert(0, "0");
+		}
+		out.append(a1 + ":" + b1 + ":" + c1 + "\n");
 		out.flush();
 	}
+
 	public static void main(String[] args) throws Throwable {
 		a = sc.nextInt();
 		b = sc.nextInt();
+		c = sc.nextInt();
 		solve();
 	}
-	
+
 	static class Scanner {
 		StringTokenizer st;
 		BufferedReader br;
